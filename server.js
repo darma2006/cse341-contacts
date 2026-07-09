@@ -1,3 +1,6 @@
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
+
 require("dotenv").config();
 
 const express = require("express");
@@ -8,9 +11,15 @@ const routes = require("./routes");
 
 const app = express();
 
-const port = process.env.PORT || 8080;
+app.use(express.json());
 
 app.use("/", routes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
+const port = process.env.PORT || 8080;
+
+
 
 app.get("/", (req, res) => {
   res.send("Contacts API is running!");
