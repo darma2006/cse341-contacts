@@ -8,7 +8,7 @@
   "host": "https://cse341-contacts-ta52.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
